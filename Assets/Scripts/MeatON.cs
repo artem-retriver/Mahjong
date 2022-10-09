@@ -11,7 +11,9 @@ public class MeatON : MonoBehaviour
         if (gameManager._items.Count < 7)
         {
             //gameManager.col = gameManager._items.Count + 1;
+            gameManager.meat++;
             gameManager._items.Add(gameObject);
+            gameManager._items1.Remove(gameObject);
 
             if (gameManager._items.Count == 1)
             {

@@ -11,7 +11,9 @@ public class BeerON : MonoBehaviour
         if (gameManager._items.Count < 7)
         {
             //gameManager._items.Count = 1;
+            gameManager.beer++;
             gameManager._items.Add(gameObject);
+            gameManager._items1.Remove(gameObject);
 
             if (gameManager._items.Count == 1)
             {

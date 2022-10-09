@@ -10,8 +10,12 @@ public class CheeseOn : MonoBehaviour
     {
         if (gameManager._items.Count < 7)
         {
-            gameManager.col++;
             gameManager._items.Add(gameObject);
+            gameManager.cheese++;
+            //Destroy(gameObject);
+            gameManager._items1.Remove(gameObject);
+            //Instantiate(gameManager._items[0]);
+            
 
             if (gameManager._items.Count == 1)
             {
@@ -48,5 +52,10 @@ public class CheeseOn : MonoBehaviour
                 transform.position = gameManager.pos7;
             }
         }
+    }
+
+    public void InvisibleOff()
+    {
+        gameObject.SetActive(false);
     }
 }

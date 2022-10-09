@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Game Object Cheese:")]
-    [SerializeField] public CheeseOn _cheeseON;
-    [SerializeField] public CheeseOn _cheeseON1;
-    [SerializeField] public CheeseOn _cheeseON2;
+    /*[Header("Game Object Cheese:")]
+    [SerializeField] public GameObject _cheeseON;
+    [SerializeField] public GameObject _cheeseON1;
+    [SerializeField] public GameObject _cheeseON2;
     [SerializeField] public CheeseOn _cheeseOFF;
     [SerializeField] public CheeseOn _cheeseOFF1;
     [SerializeField] public CheeseOn _cheeseOFF2;
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     [Header("Game Object Meat:")]
     [SerializeField] public MeatON _meatON;
     [SerializeField] public MeatON _meatON1;
-    [SerializeField] public MeatON _meatOFF;
+    [SerializeField] public MeatON _meatOFF;*/
 
     public Vector2 pos1 = new Vector2(-2.74f, -2.63f);
     public Vector2 pos2 = new Vector2(-1.81f, -2.63f);
@@ -35,14 +35,28 @@ public class GameManager : MonoBehaviour
     public Vector2 pos6 = new Vector2(1.85f, -2.63f);
     public Vector2 pos7 = new Vector2(2.75f, -2.63f);
 
-    public int col = 0;
-    public List<GameObject> _items = new List<GameObject>();
+    public int cheese = 0;
+    public int bread = 0;
+    public int beer = 0;
+    public int meat = 0;
+    public List<GameObject> _items = new List<GameObject>(7);
+    public List<GameObject> _items1 = new List<GameObject>(15);
     //CheeseOn cheeseOn;
     //List<int> _items;
 
     private void Start()
     {
-        Instantiate(_cheeseON);
+        //_items.Clear();
+
+        //Instantiate(gameObject);
+
+        for (int i = 0; i < _items1.Count; i++)
+        {
+            Instantiate(_items1[i]);
+        }
+        
+        
+        /*Instantiate(_cheeseON);
         _cheeseON.transform.position = new Vector2(0.05999756f, 3.97998f);
         Instantiate(_cheeseON1);
         _cheeseON1.transform.position = new Vector2(-0.44f, -0.42f);
@@ -73,21 +87,51 @@ public class GameManager : MonoBehaviour
         Instantiate(_meatOFF);
         _meatOFF.transform.position = new Vector2(0.55f, 0.46f);
 
-        //DestroyImmediate(_cheeseON1, true);
+        //DestroyImmediate(_cheeseON1, true);*/
     }
 
     private void Update()
     {
         if(_items.Count == 7)
         {
-            //Debug.Log("Вы проиграли");
+            Debug.Log("Вы проиграли");
         }
 
-        if (col == 3)
+       // if (_items.Exists(p => p.))
+
+
+        if (cheese == 3)
         {
-            col = 0;
+            cheese = 0;
             _items.RemoveAll(x => x.GetComponent<CheeseOn>());
-           // Destroy(gameObject.GetComponent<CheeseOn>());
+            //Destroy(GetComponent<CheeseOn>());
+        }
+
+        if (beer == 3)
+        {
+            beer = 0;
+            _items.RemoveAll(x => x.GetComponent<BeerON>());
+
+            var a = FindObjectsOfType<BeerON>();
+            for (int i = 0; i < a.Length; i++)
+            {
+                Destroy(a[i]);
+            }
+            
+        }
+
+        if (bread == 3)
+        {
+            bread = 0;
+            _items.RemoveAll(x => x.GetComponent<BreadON>());
+            //Destroy(GetComponent<CheeseOn>());
+        }
+
+        if (meat == 3)
+        {
+            meat = 0;
+            _items.RemoveAll(x => x.GetComponent<MeatON>());
+            //Destroy(GetComponent<CheeseOn>());
         }
     }
 

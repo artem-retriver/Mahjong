@@ -43,21 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b249a4e21051448a0d06c8b7130720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cheeseON: {fileID: 0}
-  _cheeseON1: {fileID: 0}
-  _cheeseON2: {fileID: 0}
-  _cheeseOFF: {fileID: 0}
-  _cheeseOFF1: {fileID: 0}
-  _cheeseOFF2: {fileID: 0}
-  _breadON: {fileID: 0}
-  _breadON1: {fileID: 0}
-  _breadOFF: {fileID: 0}
-  _beerdON: {fileID: 0}
-  _beerdOFF: {fileID: 0}
-  _beerdOFF1: {fileID: 0}
-  _meatON: {fileID: 0}
-  _meatON1: {fileID: 0}
-  _meatOFF: {fileID: 0}
   pos1: {x: -2.74, y: -2.63}
   pos2: {x: -1.81, y: -2.63}
   pos3: {x: -0.87, y: -2.63}
@@ -65,5 +50,25 @@ MonoBehaviour:
   pos5: {x: 0.9400001, y: -2.63}
   pos6: {x: 1.85, y: -2.63}
   pos7: {x: 2.75, y: -2.63}
-  col: 0
-  _items: []
+  cheese: 8
+  bread: 4
+  beer: 1
+  meat: 1
+  _items:
+  - {fileID: 0}
+  _items1:
+  - {fileID: 3552189579661600748, guid: 004a0e307ab87a5468351a57d929e4ca, type: 3}
+  - {fileID: 233100201922076935, guid: 41cea6a3e1823c24eb7d691b45b87450, type: 3}
+  - {fileID: 6473769807029369027, guid: 36e302e1a6769d64abec39d40f41b4c8, type: 3}
+  - {fileID: 8933391703602059519, guid: d1467fb30076aa048b50ab6d44eac499, type: 3}
+  - {fileID: 5682943452380513214, guid: de227be52c96b0c4badf7f3187cec7ab, type: 3}
+  - {fileID: 2263698376969990474, guid: 1891b3dea036d614984c6bf418d3e688, type: 3}
+  - {fileID: 7157358489561902720, guid: cf5ce330c50bf5840869465d04909f13, type: 3}
+  - {fileID: 8489739898588826306, guid: 005ceebdb8da2e54e952ccb76d8459e9, type: 3}
+  - {fileID: 106131907240996791, guid: 03789a1fd7471fb49a1b19e300ee0c47, type: 3}
+  - {fileID: 2309168893032547164, guid: f90b4b7c3cfffb146a0838e81306793c, type: 3}
+  - {fileID: 703885318199300388, guid: 2de7fd7961790b9428d6fcaaf6c801b9, type: 3}
+  - {fileID: 5427578538999897920, guid: 7a4c71c3d7d06a744921b7b1659dacce, type: 3}
+  - {fileID: 1277335505030348770, guid: 314e754a19b9ce945b7a00968240793f, type: 3}
+  - {fileID: 183261528077819575, guid: 750ff688f635b0d4ab20226d08f15d50, type: 3}
+  - {fileID: 8636565463840458412, guid: 1ebe7a06949856c4e91a462b76ab5e32, type: 3}
