@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
     /*[Header("Game Object Cheese:")]
-    [SerializeField] public GameObject _cheeseON;
-    [SerializeField] public GameObject _cheeseON1;
-    [SerializeField] public GameObject _cheeseON2;
+    [SerializeField] public CheeseOn _cheeseON;
+    [SerializeField] public CheeseOn _cheeseON1;
+    [SerializeField] public CheeseOn _cheeseON2;
     [SerializeField] public CheeseOn _cheeseOFF;
     [SerializeField] public CheeseOn _cheeseOFF1;
     [SerializeField] public CheeseOn _cheeseOFF2;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     public Vector2 pos7 = new Vector2(2.75f, -2.63f);
 
     public int cheese = 0;
+    public int cheeseoff = 0;
     public int bread = 0;
     public int beer = 0;
     public int meat = 0;
@@ -50,10 +52,10 @@ public class GameManager : MonoBehaviour
 
         //Instantiate(gameObject);
 
-        for (int i = 0; i < _items1.Count; i++)
-        {
-            Instantiate(_items1[i]);
-        }
+        //for (int i = 0; i < _items1.Count; i++)
+        //{
+        //    Instantiate(_items1[i]);
+        //}
         
         
         /*Instantiate(_cheeseON);
@@ -95,16 +97,35 @@ public class GameManager : MonoBehaviour
         if(_items.Count == 7)
         {
             Debug.Log("Вы проиграли");
+            GameOver();
         }
 
-       // if (_items.Exists(p => p.))
+        /*if (cheeseoff == 3)
+        {
+            cheeseoff = 0;
+            _items.RemoveAll(x => x.GetComponent<CheeseOFF>());
 
+            var array = _items.OfType<CheeseOn>().Where(x => x.isOn && x.isSelected).ToArray(); 
+            
+            if(array.Length >= 3)
+            {
+                foreach (var x in array)
+                {
+                    x.InvisibleOff();
+                }
+            }
+            
+            gameObject.GetComponent<CheeseOn>().InvisibleOff();
+        }
 
         if (cheese == 3)
         {
             cheese = 0;
             _items.RemoveAll(x => x.GetComponent<CheeseOn>());
-            //Destroy(GetComponent<CheeseOn>());
+
+            _cheeseON.InvisibleOff();
+            _cheeseON1.InvisibleOff();
+            _cheeseON2.InvisibleOff();
         }
 
         if (beer == 3)
@@ -112,27 +133,77 @@ public class GameManager : MonoBehaviour
             beer = 0;
             _items.RemoveAll(x => x.GetComponent<BeerON>());
 
-            var a = FindObjectsOfType<BeerON>();
-            for (int i = 0; i < a.Length; i++)
-            {
-                Destroy(a[i]);
-            }
-            
+            _beerON.InvisibleOff();
+            _beerOFF.InvisibleOff();
+            _beerOFF1.InvisibleOff();
         }
 
         if (bread == 3)
         {
             bread = 0;
             _items.RemoveAll(x => x.GetComponent<BreadON>());
-            //Destroy(GetComponent<CheeseOn>());
+            
+            _breadON.InvisibleOff();
+            _breadOFF.InvisibleOff();
+            _breadON1.InvisibleOff();
         }
 
         if (meat == 3)
         {
             meat = 0;
             _items.RemoveAll(x => x.GetComponent<MeatON>());
-            //Destroy(GetComponent<CheeseOn>());
+            
+            _meatON.InvisibleOff();
+            _meatON1.InvisibleOff();
+            _meatOFF.InvisibleOff();
+        }*/
+    }
+
+    public void AddCheese(GameObject gameObject)
+    {
+        _items1.Remove(gameObject);
+        _items.Add(gameObject);
+
+        var array = _items.OfType<ItemsAdd>().Where(x => x.isOn == true && x.isSelected == true).ToArray();
+        //var array = _items.FindAll(x => x.GetComponent<ItemsAdd>());
+        var ar = _items.OfType<ItemsAdd>().ToArray();
+        //Debug.Log(array.Count);
+
+        Debug.Log(ar.Length);
+        Debug.Log(array.Length);
+
+        /*if (array.Count >= 3)
+        {
+            foreach (var x in array)
+            {
+                _items.Remove(x);
+                x.GetComponent<ItemsAdd>().InvisibleOff();
+            }
+        }*/
+
+        if (array.Length >= 3)
+        {
+            foreach (var x in array)
+            {
+                x.InvisibleOff();
+            }
         }
+    }
+
+    public void AddBread(GameObject gameObject)
+    {
+        _items1.Remove(gameObject);
+        _items.Add(gameObject);
+
+        /*var array = _items.OfType<BreadON>().Where(x => x.isOn && x.isSelected).ToArray();
+
+        if (array.Length >= 3)
+        {
+            foreach (var x in array)
+            {
+                x.InvisibleOff();
+            }
+        }*/
     }
 
     public void GameOver()

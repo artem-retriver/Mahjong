@@ -51,4 +51,9 @@ public class BreadON : MonoBehaviour
             }
         }
     }
+
+    public void InvisibleOff()
+    {
+        gameObject.SetActive(false);
+    }
 }

@@ -2,18 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeatON : MonoBehaviour
+public class CheeseOFF : MonoBehaviour
 {
     [SerializeField] public GameManager gameManager;
+
+    private void Start()
+    {
+        //var r = GetComponent<SpriteRenderer>();
+        //r.color = new Color(255, 255, 255);
+    }
+
+    private void Update()
+    {
+        
+    }
 
     public void OnMouseDown()
     {
         if (gameManager._items.Count < 7)
         {
-            //gameManager.col = gameManager._items.Count + 1;
-            gameManager.meat++;
             gameManager._items.Add(gameObject);
+            gameManager.cheeseoff++;
+            //Destroy(gameObject);
             gameManager._items1.Remove(gameObject);
+            //Instantiate(gameManager._items[0]);
+
 
             if (gameManager._items.Count == 1)
             {

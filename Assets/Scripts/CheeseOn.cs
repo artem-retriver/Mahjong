@@ -5,17 +5,29 @@ using UnityEngine;
 public class CheeseOn : MonoBehaviour
 {
     [SerializeField] public GameManager gameManager;
+    public bool isOn;
+    public bool isSelected;
+
 
     public void OnMouseDown()
     {
         if (gameManager._items.Count < 7)
         {
-            gameManager._items.Add(gameObject);
-            gameManager.cheese++;
+            if (isOn == false)
+            {
+                isOn = true;
+                var r = GetComponent<SpriteRenderer>();
+                r.color = new Color(255, 255, 255);
+            }
+
+
+            isSelected = true;
+            gameManager.AddCheese(gameObject);
+            //gameManager.cheese++;
             //Destroy(gameObject);
-            gameManager._items1.Remove(gameObject);
+            //gameManager._items1.Remove(gameObject);
             //Instantiate(gameManager._items[0]);
-            
+
 
             if (gameManager._items.Count == 1)
             {

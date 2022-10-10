@@ -51,4 +51,9 @@ public class BeerON : MonoBehaviour
             }
         }
     }
+
+    public void InvisibleOff()
+    {
+        gameObject.SetActive(false);
+    }
 }

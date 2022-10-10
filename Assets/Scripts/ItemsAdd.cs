@@ -2,18 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeatON : MonoBehaviour
+public class ItemsAdd : MonoBehaviour
 {
     [SerializeField] public GameManager gameManager;
+    public bool isOn;
+    public bool isSelected;
+
 
     public void OnMouseDown()
     {
         if (gameManager._items.Count < 7)
         {
-            //gameManager.col = gameManager._items.Count + 1;
-            gameManager.meat++;
-            gameManager._items.Add(gameObject);
-            gameManager._items1.Remove(gameObject);
+            if(isOn == false)
+            {
+                isOn = true;
+                var r = GetComponent<SpriteRenderer>();
+                r.color = new Color(255, 255, 255);
+            }
+
+
+            isSelected = true;
+            gameManager.AddCheese(gameObject);
+            //gameManager.cheese++;
+            //Destroy(gameObject);
+            //gameManager._items1.Remove(gameObject);
+            //Instantiate(gameManager._items[0]);
+
 
             if (gameManager._items.Count == 1)
             {

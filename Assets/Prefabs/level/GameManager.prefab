@@ -50,12 +50,11 @@ MonoBehaviour:
   pos5: {x: 0.9400001, y: -2.63}
   pos6: {x: 1.85, y: -2.63}
   pos7: {x: 2.75, y: -2.63}
-  cheese: 8
+  cheese: 12
   bread: 4
   beer: 1
   meat: 1
-  _items:
-  - {fileID: 0}
+  _items: []
   _items1:
   - {fileID: 3552189579661600748, guid: 004a0e307ab87a5468351a57d929e4ca, type: 3}
   - {fileID: 233100201922076935, guid: 41cea6a3e1823c24eb7d691b45b87450, type: 3}
